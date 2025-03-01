@@ -15,7 +15,9 @@ After downloading, open the project in your preferred IDE (e.g., VS Code, PhpSto
 
 2. Set Up the Database
 Create a MySQL database named 'shehanTest'.
-If you want old database file it is located in the 'database' folder.
+
+Run the migration
+php artisan migrate
 
 3. Run the Seeder
 To populate the database with initial website data, execute the following command:
