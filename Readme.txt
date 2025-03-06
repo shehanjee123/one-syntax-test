@@ -70,6 +70,6 @@ Checking Sent Emails:
 Emails are logged in the Laravel log file:
 Path: storage/logs/laravel.log
 
-Viewing and Resending Posts
+Post Viewing and Resending Email
 Click the "Show Posts" button in the header to view all published posts.
 If an email was not received, you can resend it using the "Send Mail" button inside the post details.
