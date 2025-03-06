@@ -58,21 +58,7 @@ class WebsiteController extends Controller {
                 }
             }
         }
-
         return response()->json(['message' => 'Post created and emails sent to subscribers.'], 200);
-    }
-
-
-    // using this to send mail
-    public function showPost($id){
-        $post = WebsitePost::findOrFail($id);
-        return view('frontend.emails.subscription', compact('post'));
-    }
-
-    // Post showing functions
-    public function showOldPost(){
-        $oldPosts = WebsitePost::all();
-        return view('frontend.oldPost', compact('oldPosts'));
     }
 
     // Emails resent to users who did not receive
@@ -107,5 +93,17 @@ class WebsiteController extends Controller {
             }
         }
         return response()->json(['message' => 'Emails resent to users who did not receive them previously.'], 200);
+    }
+
+    // using this to send mail
+    public function showPost($id){
+        $post = WebsitePost::findOrFail($id);
+        return view('frontend.emails.subscription', compact('post'));
+    }
+
+    // Post showing functions
+    public function showOldPost(){
+        $oldPosts = WebsitePost::all();
+        return view('frontend.oldPost', compact('oldPosts'));
     }
 }

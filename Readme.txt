@@ -38,11 +38,19 @@ php artisan queue:work
 # Testing (Test-Driven Development - TDD)
 To ensure everything is working correctly, run the following test cases:
 
-Validate post data before publishing:
-phpunit --filter post_should_have_valid_data_to_publish
+//user subscribe a website,
+//user cannot subscribe twice to the same website
+//subscription fails with invalid data
+php artisan test --filter=SubscriptionTest
 
-Validate user creation and data integrity:
-phpunit --filter user_should_have_valid_data
+//A post is successfully created,
+//Send Mail to the subscribers,
+//post is stored in the database with correct data,
+//PostSubscription table correctly records the sent notification
+phpunit --filter a_post_can_be_uploaded_and_notified_to_subscribers
+
+// resends emails only to users who did not receive
+php artisan test --filter=ResendEmailTest
 
 Note: If the database data is cleared after running tests, re-run the seeder:
 php artisan db:seed --class=WebsiteSeeder

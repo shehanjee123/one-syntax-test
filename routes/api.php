@@ -36,3 +36,6 @@ Route::post('create/user', [UserController::class, 'store'])->name('user.details
 // This is the Subcription Route
 Route::post('subscription/make', [SubscriptionController::class, 'store'])->name('subscription.make');
 
+// resend mail
+Route::post('/send-mail', [WebsiteController::class, 'sendMailFn'])->name('sendMail');
+

@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('post_subscriptions', function (Blueprint $table) {
             $table->id();
-            $table->tinyInteger('post_id')->constrained()->onDelete('cascade');
-            $table->tinyInteger('user_id')->constrained()->onDelete('cascade');
+            $table->foreignId('post_id')->constrained('website_posts')->onDelete('cascade');
+            $table->unsignedTinyInteger('user_id');
             $table->timestamps();
 
             $table->unique(['post_id', 'user_id']);
